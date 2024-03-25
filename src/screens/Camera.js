@@ -36,9 +36,10 @@ const CameraScreen = (props) => {
   }
 
   const onSnap = async () => {
+    const options = { base64: true }
     if (cameraRef) {
       try {
-        let photo = await cameraRef.current.takePictureAsync();
+        let photo = await cameraRef.current.takePictureAsync(options);
 
         props.navigation.navigate('Details', {
           photo: photo
